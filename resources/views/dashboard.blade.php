@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="dashboard">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -54,7 +54,7 @@
             <!-- Nav Item - Supplier -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-solid fa-user"></i>
                     <span>Supplier</span></a>
             </li>
 
@@ -64,8 +64,8 @@
 
             <!-- Nav Item - Barang Bangunan -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="{{ route('stokbarang') }}">
+                    <i class="fas fa-fw fa-solid fa-folder"></i>
                     <span>Barang Bangunan</span></a>
             </li>
 
@@ -74,8 +74,8 @@
 
             <!-- Nav Item - Barang Masuk -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="{{ route('barangmsk') }}">
+                    <i class="fas fa-fw fa-solid fa-box-open"></i>
                     <span>Barang Masuk</span></a>
             </li>
 
@@ -85,9 +85,10 @@
             <!-- Nav Item - Transaksi Penjualan -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-solid fa-briefcase"></i>
                     <span>Transaksi Penjualan</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -95,7 +96,7 @@
             <!-- Nav Item - Cetak Laporan -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-solid fa-print"></i>
                     <span>Cetak Laporan</span></a>
             </li>
 
@@ -105,7 +106,7 @@
             <!-- Nav Item - User Management -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-solid fa-user"></i>
                     <span>User Management</span></a>
             </li>
 
@@ -307,12 +308,13 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('dashboard') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Dashboard
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('login') }}" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -343,12 +345,13 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="text-sm font-weight-bold text-black text-uppercase mb-1">
+                                                Total Barang Bangunan</div>
+                                            <hr class="sidebar-divider my-0">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-folder fa-2x text-black-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -361,12 +364,13 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="text-sm font-weight-bold text-black text-uppercase mb-1">
+                                                Total Supplier</div>
+                                            <hr class="sidebar-divider my-0">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-user fa-2x text-black-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -379,23 +383,18 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-sm font-weight-bold text-black text-uppercase mb-1">Total
+                                                Stok Barang
                                             </div>
+                                            <hr class="sidebar-divider my-0">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class=" fas fa-solid fa-box-open fa-2x text-black-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -408,12 +407,13 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
+                                            <div class="text-sm font-weight-bold text-black text-uppercase mb-1">
+                                                Total User</div>
+                                            <hr class="sidebar-divider my-0">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-user fa-2x text-black-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -492,7 +492,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="{{ route('login') }}">Logout</a>
                     </div>
                 </div>
             </div>
