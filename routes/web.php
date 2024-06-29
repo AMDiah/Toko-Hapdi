@@ -18,11 +18,22 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+//login
 Route::get('/Auth/login', [BarangController::class, 'login'])->name('login');
 
+//navbar
 Route::get('/dashboard', [BarangController::class, 'dashboard'])->name('dashboard');
 Route::get('/barang-masuk', [BarangController::class, 'barangmsk'])->name('barangmsk');
 Route::get('/barang-bangunan', [BarangController::class, 'stokbarang'])->name('stokbarang');
+Route::get('/supplier', [BarangController::class, 'supplier'])->name('supplier');
+Route::get('/tansaksi-penjualan', [BarangController::class, 'transaksijual'])->name('transaksijual');
+Route::get('/kelola-user', [BarangController::class, 'kelolauser'])->name('kelolauser');
+Route::get('/cetak-laporan', [BarangController::class, 'cetak'])->name('cetak');
+
+//stok
+Route::get('/tambah-stok', [BarangController::class, 'createstok'])->name('createstok');
+Route::post('/simpan-stok', [BarangController::class, 'store'])->name('simpan-stok');
+
 Route::get('/blank', [BarangController::class, 'blank'])->name('blank');
 // Route::get('/praktikum', [AppController::class, 'praktikum'])->name('praktikum');
 // Route::get('/navb', [AppController::class, 'navb'])->name('navb');

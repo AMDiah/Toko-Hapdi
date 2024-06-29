@@ -56,7 +56,7 @@
 
             <!-- Nav Item - Supplier -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('stokbarang') }}">
                     <i class="fas fa-fw fa-solid fa-user"></i>
                     <span>Supplier</span></a>
             </li>
@@ -87,7 +87,7 @@
 
             <!-- Nav Item - Transaksi Penjualan -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('transaksijual') }}">
                     <i class="fas fa-fw fa-solid fa-briefcase"></i>
                     <span>Transaksi Penjualan</span></a>
             </li>
@@ -98,7 +98,7 @@
 
             <!-- Nav Item - Cetak Laporan -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('cetak') }}">
                     <i class="fas fa-fw fa-solid fa-print"></i>
                     <span>Cetak Laporan</span></a>
             </li>
@@ -108,7 +108,7 @@
 
             <!-- Nav Item - User Management -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('kelolauser') }}">
                     <i class="fas fa-fw fa-solid fa-user"></i>
                     <span>User Management</span></a>
             </li>
@@ -159,13 +159,18 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-black-400"></i>
+                                    Admin
+                                </a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-black-400"></i>
                                     Dashboard
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-black-400"></i>
                                     Logout
                                 </a>
                             </div>
@@ -181,7 +186,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">BARANG MASUK</h1>
+                        <h1 class="h3 mb-0 text-gray-800">TRANSAKSI PENJUALAN</h1>
 
                     </div>
 
@@ -201,10 +206,11 @@
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                        <h6 class="m-0 font-weight-bold text-black">Data Barang Masuk</h6>
+                                        <h6 class="m-0 font-weight-bold text-black">Riwayat Transaksi Penjalan</h6>
                                         <a href="#"
                                             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                class="fas fa-solid fa-plus fa-sm text-white-50"></i> Tambah Barang</a>
+                                                class="fas fa-solid fa-plus fa-sm text-white-50"></i> Lakukan
+                                            Transaksi</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
