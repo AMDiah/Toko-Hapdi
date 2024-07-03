@@ -186,7 +186,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 align-text-center text-black-800">BARANG</h1>
+                        <h1 class="h3 mb-0 align-text-center text-black-800">DATA BARANG</h1>
                         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-solid fa-plus fa-sm text-white-50"></i> Tambah Barang</a> --}}
                     </div>
@@ -205,99 +205,110 @@
 
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <div class="card card-info card-outline">
+                                    <div class="card-header py-3">
+                                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                            <h6 class="m-0 font-weight-bold text-black">Menambahkan Data Barang</h6>
+                                        </div>
+                                        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                         <h6 class="m-0 font-weight-bold text-black">Data Barang</h6>
-                                        <a href="{{ route('createstok') }}"
+                                        <a href="#"
                                             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                                 class="fas fa-solid fa-plus fa-sm text-white-50"></i> Tambah Barang</a>
+                                    </div> --}}
+                                    </div>
+                                    <div class="card-body">
+                                        {{-- <form action="{{ route('simpan-stok') }}" method="POST">
+                                            @csrf
+                                            <div class=" form-group">
+                                                <input type="text" id="kode_barang" name="kode_barang"
+                                                    class="form-control" placeholder="Kode Barang">
+                                            </div>
+
+                                            <div class=" form-group">
+                                                <input type="text" id="nama_barang" name="nama_barang"
+                                                    class="form-control" placeholder="Nama Barang">
+                                            </div>
+                                            <div class=" form-group">
+                                                <input type="text" id="stok" name="stok"
+                                                    class="form-control" placeholder="stok">
+                                            </div>
+                                            <div class=" form-group">
+                                                <input type="text" id="harga_barang" name="harga_barang"
+                                                    class="form-control" placeholder="Harga Barang">
+                                            </div>
+                                            <div class=" form-group">
+                                                <input type="text" id="harga_beli" name="harga_beli"
+                                                    class="form-control" placeholder="Harga Beli">
+                                            </div>
+                                            <div class=" form-group">
+                                                <button type="submit" class="btn btn-success">Simpan Data</button>
+                                            </div>
+                                        </form> --}}
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%"
-                                            cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Kode Barang</th>
-                                                    <th>ID Satuan</th>
-                                                    <th>ID Jenis</th>
-                                                    <th>Nama Barang</th>
-                                                    <th>Stok</th>
-                                                    <th>Harga Barang</th>
-                                                    <th>Harga Beli</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($barang as $item)
-                                                    <tr>
-                                                        <td>{{ $item->kode_barang }}</td>
-                                                        {{-- <p>Satuan: {{ $item->satuan->satuan }}</p>
-                                                    <p>Jenis: {{ $item->jenis->jenis }}</p> --}}
-                                                        <td>{{ $item->satuan->nama_satuan }}</td>
-                                                        <td>{{ $item->jenis->nama_jenis }}</td>
-                                                        <td>{{ $item->nama_barang }}</td>
-                                                        <td>{{ $item->stok }}</td>
-                                                        <td>{{ $item->harga_barang }}</td>
-                                                        <td>{{ $item->harga_beli }}</td>
-                                                        <td>
-                                                            <form {{-- action="{{ route('barang.destroy', $barang->kode_barang) }}"
-                                                                method="POST" style="display:inline;">
-                                                                @csrf
-                                                                @method('DELETE') <button type="submit" --}} class="btn btn-danger">
-                                                                Delete</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                {{-- @foreach ($barang as $b)
-                                                    <tr>
-                                                        <td>{{ $b->kode_barang }}</td>
-                                                        <td>{{ $b->nama_barang }}</td>
-                                                        <td>{{ $b->satuan->nama_satuan }}</td>
-                                                        <td>{{ $b->jenis->nama_jenis }}</td>
-                                                        <td>{{ $b->stok }}</td>
-                                                        <td>{{ $b->harga_barang }}</td>
-                                                        <td>{{ $b->harga_beli }}</td>
-                                                        {{-- <td>
-                                                            <a href="{{ route('barang.edit', $b->kode_barang) }}"
-                                                                class="btn btn-warning">Edit</a>
-                                                            <form
-                                                                action="{{ route('barang.destroy', $b->kode_barang) }}"
-                                                                method="POST" style="display:inline;">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit"
-                                                                    class="btn btn-danger">Delete</button>
-                                                            </form>
-                                                        </td> --}}
-                                                {{-- </tr>
-                                                @endforeach --}}
-
-                                                {{-- @foreach ($barang as $brg)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $brg->kode_barang }}</td>
 
 
-                                                        <td>{{ $brg->id_satuan }}</td>
-                                                        <td>{{ $brg->id_jenis }}</td>
-                                                        <td>{{ $brg->nama_barang }}</td>
-                                                        <td>{{ $brg->stok }}</td>
-                                                        <td>{{ $brg->harga_barang }}</td>
-                                                        <td>{{ $brg->harga_beli }}</td>
+                                <form action="{{ route('store') }}" method="post">
+                                    @csrf
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 form-regis">
+                                    <span class="text-danger">
+                                        @error('kode_barang')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <label for="kode_barang" class="form-label">Kode Barang</label>
 
-                                                        
-                                                    </tr>
-                                                @endforeach --}}
-
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <input type="text" name="kode_barang"class="form-control mb-1"
+                                        id="kode_barang" placeholder="Kode Barang">
+                                    <span class="text-danger">
+                                        @error('nama_barang')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <label for="nama_barang" class="form-label">nama_barang</label>
+                                    <input type="text" name="nama_barang" class="form-control mb-1"
+                                        id="nama_barang" placeholder="nama_barang">
+                                    <span class="text-danger">
+                                        @error('stok')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <label for="stok" class="form-label">stok</label>
+                                    <input type="text" name="stok" class="form-control mb-1" id="stok"
+                                        placeholder="stok">
+                                    <span class="text-danger">
+                                        @error('harga_barang')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <label for="harga_barang" class="form-label">harga_barang</label>
+                                    <input type="text" name="harga_barang" class="form-control mb-1"
+                                        id="harga_barang" placeholder="harga_barang ">
+                                    <span class="text-danger">
+                                        @error('harga_beli')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <label for="harga_beli" class="form-label">harga_beli</label>
+                                    <input type="text" name="harga_beli" class="form-control mb-1"
+                                        id="harga_beli" placeholder="harga_beli">
+                                    <label for="harga_beli" class="mb-2">harga_beli</label>
+                                    <select id="jenis_kelamin" name="jenis_kelamin" class="form-select mb-3"
+                                        aria-placeholder="" aria-label="Default select example">
+                                        <option selected>Pilih jenis kelamin</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                    </select>
+                                    <img src="Image/dropdown-ico.svg" class="dropdown-ico">
+                                    <a class="d-flex justify-content-center" href="/loket"><button type="submit"
+                                            class="btn btn-secondary button">Kirim</button></a>
                                 </div>
                             </div>
                         </div>
+
 
 
 
@@ -326,54 +337,54 @@
                     </footer>
                     <!-- End of Footer -->
 
+
+                    <!-- End of Content Wrapper -->
+
                 </div>
-                <!-- End of Content Wrapper -->
+                <!-- End of Page Wrapper -->
 
-            </div>
-            <!-- End of Page Wrapper -->
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Select "Logout" below if you are ready to end your current
-                            session.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="login.html">Logout</a>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                session.</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.html">Logout</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-            <!-- Page level plugins -->
-            <script src="vendor/chart.js/Chart.min.js"></script>
+                <!-- Page level plugins -->
+                <script src="vendor/chart.js/Chart.min.js"></script>
 
-            <!-- Page level custom scripts -->
-            <script src="js/demo/chart-area-demo.js"></script>
-            <script src="js/demo/chart-pie-demo.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="js/demo/chart-area-demo.js"></script>
+                <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

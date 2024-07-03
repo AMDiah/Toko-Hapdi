@@ -31,8 +31,12 @@ Route::get('/kelola-user', [BarangController::class, 'kelolauser'])->name('kelol
 Route::get('/cetak-laporan', [BarangController::class, 'cetak'])->name('cetak');
 
 //stok
-Route::get('/tambah-stok', [BarangController::class, 'createstok'])->name('createstok');
-Route::post('/simpan-stok', [BarangController::class, 'store'])->name('simpan-stok');
+Route::get('/tambah-stok', [BarangController::class, 'create'])->name('createstok');
+Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');
+Route::post('/simpan-stok', [BarangController::class, 'store'])->name('store');
+Route::get('/hapus', [BarangController::class, 'destroy'])->name('barang.destroy');
+
+Route::get('/tambah-supplier', [BarangController::class, 'create'])->name('createsupplier');
 
 Route::get('/blank', [BarangController::class, 'blank'])->name('blank');
 // Route::get('/praktikum', [AppController::class, 'praktikum'])->name('praktikum');

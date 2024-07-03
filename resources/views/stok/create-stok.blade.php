@@ -218,107 +218,302 @@
                                     </div> --}}
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{ route('simpan-stok') }}" method="POST">
+                                        @if (session('success'))
+                                            <div>{{ session('success') }}</div>
+                                        @endif
+
+                                        <form action="{{ route('store') }}" method="POST">
+                                            @csrf
+                                            <div>
+                                                <label>Kode Barang:</label>
+                                                <input type="text" name="kode_barang"
+                                                    value="{{ old('kode_barang') }}">
+                                                @error('kode_barang')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <label>Nama Barang:</label>
+                                                <input type="text" name="nama_barang"
+                                                    value="{{ old('nama_barang') }}">
+                                                @error('nama_barang')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <label>Stok:</label>
+                                                <input type="number" name="stok" value="{{ old('stok') }}">
+                                                @error('stok')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <label>Harga Barang:</label>
+                                                <input type="number" name="harga_barang"
+                                                    value="{{ old('harga_barang') }}">
+                                                @error('harga_barang')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <label>Harga Beli:</label>
+                                                <input type="number" name="harga_beli"
+                                                    value="{{ old('harga_beli') }}">
+                                                @error('harga_beli')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <label>Satuan:</label>
+                                                <select name="id_satuan">
+                                                    <option value="">Pilih Satuan</option>
+                                                    @foreach ($satuan as $item)
+                                                        <option value="{{ $item->id_satuan }}">{{ $item->satuan }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('id_satuan')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div>
+                                                <label>Jenis:</label>
+                                                <select name="id_jenis">
+                                                    <option value="">Pilih Jenis</option>
+                                                    @foreach ($jenis as $item)
+                                                        <option value="{{ $item->id_jenis }}">{{ $item->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('id_jenis')
+                                                    <div>{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                        {{-- <form action="{{ route('store') }}" method="POST">
+                                            @csrf
                                             <div class=" form-group">
-                                                <input type="text" id="kd_barang" name="kd_barang"
+                                                <input type="text" id="kode_barang" name="kode_barang"
                                                     class="form-control" placeholder="Kode Barang">
                                             </div>
+                                            <div>
+                                                <label for="id_satuan">Satuan</label>
+                                                <select name="id_satuan" id="id_satuan" placeholder="Satuan"
+                                                    required>
+                                                    @foreach ($satuan as $stn)
+                                                        <option value="{{ $stn->id }}">
+                                                            {{ $stn->nama_satuan }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label for="id_jenis">Jenis</label>
+                                                <select name="id_jenis" id="id_jenis" placeholder="Jenis" required>
+                                                    @foreach ($jenis as $jen)
+                                                        <option value="{{ $jen->id }}">{{ $jen->nama_jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                             <div class=" form-group">
-                                                <input type="text" id="barang" name="barang"
+                                                <input type="text" id="nama_barang" name="nama_barang"
                                                     class="form-control" placeholder="Nama Barang">
                                             </div>
                                             <div class=" form-group">
-                                                <input type="text" id="harga" name="harga"
+                                                <input type="text" id="stok" name="stok"
+                                                    class="form-control" placeholder="stok">
+                                            </div>
+                                            <div class=" form-group">
+                                                <input type="text" id="harga_barang" name="harga_barang"
                                                     class="form-control" placeholder="Harga Barang">
                                             </div>
                                             <div class=" form-group">
-                                                <button type="submit" class="btn btn-success">Simpan Data</button>
+                                                <input type="text" id="harga_beli" name="harga_beli"
+                                                    class="form-control" placeholder="Harga Beli">
                                             </div>
-                                        </form>
+                                            <a
+                                                href="{{ route('createstok') }}
+                                            div class="form-group">
+                                                <button type="submit" class="btn btn-success">Simpan
+                                                    Data</button></a>
+
+                                        </form> --}}
+
                                     </div>
+
+                                    {{-- </form> 
+                                        <form action="{{ route('store') }}" method="post">
+                                            @csrf
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 form-regis">
+                                            <span class="text-danger">
+                                                @error('kode_barang')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <label for="kode_barang" class="form-label">Kode Barang</label>
+
+                                            <input type="text" name="kode_barang"class="form-control mb-1"
+                                                id="kode_barang" placeholder="Kode Barang">
+                                            <span class="text-danger">
+                                                @error('nama_barang')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <label for="nama_barang" class="form-label">nama_barang</label>
+                                            <input type="text" name="nama_barang" class="form-control mb-1"
+                                                id="nama_barang" placeholder="nama_barang">
+                                            <span class="text-danger">
+                                                @error('stok')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <label for="stok" class="form-label">stok</label>
+                                            <input type="text" name="stok" class="form-control mb-1"
+                                                id="stok" placeholder="stok">
+                                            <span class="text-danger">
+                                                @error('harga_barang')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <label for="harga_barang" class="form-label">harga_barang</label>
+                                            <input type="text" name="harga_barang" class="form-control mb-1"
+                                                id="harga_barang" placeholder="harga_barang ">
+                                            <span class="text-danger">
+                                                @error('harga_beli')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <label for="harga_beli" class="form-label">harga_beli</label>
+                                            <input type="text" name="harga_beli" class="form-control mb-1"
+                                                id="harga_beli" placeholder="harga_beli">
+
+                                            <span class="text-danger">
+                                                @error('id_satuan')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+
+                                            <label for="id_satuan" class="mb-2">id_satuan</label>
+                                            <select id="id_satuan" name="id_satuan" class="form-select mb-3"
+                                                aria-placeholder="" aria-label="Default select example">
+                                                <option selected>Pilih satuan</option>
+                                                <option value="unit">unit</option>
+                                                <option value="satuan">satuan</option>
+                                                <option value="buah">buah</option>
+                                                <option value="kg">kg</option>
+
+                                                {{-- @foreach ($satuan as $stn)
+                                                    <option value="{{ $stn->id }}">
+                                                        {{ $stn->nama_satuan }}</option>
+                                                @endforeach --}}
+                                    {{-- </select>
+                                            <label for="id_jenis" class="mb-2">id_jenis</label>
+                                            <select id="id_jenis" name="id_jenis" class="form-select mb-3"
+                                                aria-placeholder="" aria-label="Default select example">
+                                                <option selected>Pilih jenis</option>
+                                                <option value="cat">cat</option>
+                                                <option value="semen">semen</option>
+                                                <option value="amplas">amplas</option>
+                                                <option value="sendok">sendok</option>
+                                                <option value="dompol">dompol</option> --}}
+                                    {{-- @foreach ($jenis as $jen)
+                                                    <option value="{{ $jen->id }}">{{ $jen->nama_jenis }}
+                                                    </option>
+                                                @endforeach --}}
+                                    {{-- </select>
+                                            <img src="Image/dropdown-ico.svg" class="dropdown-ico">
+                                            <a class="d-flex justify-content-center"
+                                                href="{{ route('createstok') }}"><button type="submit"
+                                                    class="btn btn-secondary button">Kirim</button></a> --}}
                                 </div>
-
-
-
-
-
-
-
-                                <!-- Content Row -->
-                                <div class="row">
-                                    <!-- Content Column -->
-                                    <div class="col-lg-6 mb-4">
-                                    </div>
-                                    <div class="col-lg-6 mb-4">
-                                    </div>
-                                </div>
-
-
-                                <!-- /.container-fluid -->
-
                             </div>
-                            <!-- End of Main Content -->
-
-                            <!-- Footer -->
-                            <footer class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <span>Copyright &copy; Your Website 2021</span>
-                                    </div>
-                                </div>
-                            </footer>
-                            <!-- End of Footer -->
-
-
-                            <!-- End of Content Wrapper -->
-
-                        </div>
-                        <!-- End of Page Wrapper -->
-
-                        <!-- Scroll to Top Button-->
-                        <a class="scroll-to-top rounded" href="#page-top">
-                            <i class="fas fa-angle-up"></i>
-                        </a>
-
-                        <!-- Logout Modal-->
-                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                        <button class="close" type="button" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">Select "Logout" below if you are ready to end your current
-                                        session.</div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button"
-                                            data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-primary" href="login.html">Logout</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
-                        <!-- Bootstrap core JavaScript-->
-                        <script src="vendor/jquery/jquery.min.js"></script>
-                        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    </div>
+                </div>
 
-                        <!-- Core plugin JavaScript-->
-                        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                        <!-- Custom scripts for all pages-->
-                        <script src="js/sb-admin-2.min.js"></script>
 
-                        <!-- Page level plugins -->
-                        <script src="vendor/chart.js/Chart.min.js"></script>
 
-                        <!-- Page level custom scripts -->
-                        <script src="js/demo/chart-area-demo.js"></script>
-                        <script src="js/demo/chart-pie-demo.js"></script>
+
+
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Content Column -->
+                    <div class="col-lg-6 mb-4">
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                    </div>
+                </div>
+
+
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current
+                        session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
